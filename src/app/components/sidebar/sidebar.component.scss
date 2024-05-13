@@ -1,0 +1,26 @@
+.sidebar{
+  width: 12rem;
+
+  header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+
+    .header-image {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+    }
+    p{
+      margin: 0;
+    }
+  }
+
+  .options{
+    padding: 1rem;
+  }
+}
