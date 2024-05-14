@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
 import { School } from '../interfaces/school';
+import { DatumSchoolStaff } from '../interfaces/school-staff';
+
+interface monitoringEvaluation {
+  id: number;
+  nombre: string;
+  date: string;
+  evaluation: [] | null;
+  staff: DatumSchoolStaff;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -58,5 +67,37 @@ export class SchoolService {
 
   getSchools(): School[] {
     return this.School;
+  }
+
+  saveSchoolLocalStorage(id: number = 56) {
+    const school = this.School.find((s) => s.id === id);
+    localStorage.setItem('monitoringSchool', JSON.stringify(school));
+  }
+
+  getSchoolLocalStorage(): School {
+    return JSON.parse(localStorage.getItem('monitoringSchool') || '{}');
+  }
+
+  updateSchoolLocalStorage(id: number) {
+    this.saveSchoolLocalStorage(id);
+  }
+
+  monitoringEvaluationSchool(
+    fecha: string,
+    school: School,
+    staff: DatumSchoolStaff
+  ) {
+    const data: monitoringEvaluation = {
+      id: school.id,
+      nombre: school.nombre,
+      date: fecha,
+      evaluation: null,
+      staff: staff,
+    };
+
+    localStorage.setItem(
+      `monitoringEvaluation-${fecha}-${staff.id}`,
+      JSON.stringify(data)
+    );
   }
 }

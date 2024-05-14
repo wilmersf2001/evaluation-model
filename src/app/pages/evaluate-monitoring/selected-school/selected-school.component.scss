@@ -25,9 +25,12 @@
           width: 100px;
           color: #fff;
           background-color: #4d869c;
-          padding: 0.5rem;
+          padding: 0.2rem;
           border-radius: 5px;
           text-align: center;
+        }
+        tr{
+          cursor: pointer;
         }
       }
     }
@@ -38,6 +41,25 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .seleccionado{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        h2{
+          margin: 0;
+        }
+
+        .header-image {
+          width: 7rem;
+          height: 7rem;
+          border-radius: 50%;
+          background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+          background-size: cover;
+        }
+      }
     }
   }
 }

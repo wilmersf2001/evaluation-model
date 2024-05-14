@@ -3,6 +3,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EvaluateMonitoringComponent } from './pages/evaluate-monitoring/evaluate-monitoring.component';
+import { SelectedSchoolComponent } from './pages/evaluate-monitoring/selected-school/selected-school.component';
+import { EvaluateSchoolComponent } from './pages/evaluate-monitoring/evaluate-school/evaluate-school.component';
 import { EvaluateCertificationComponent } from './pages/evaluate-certification/evaluate-certification.component';
 
 export const routes: Routes = [
@@ -14,9 +16,23 @@ export const routes: Routes = [
     children: [
       { path: 'profile', title: 'Perfil', component: ProfileComponent },
       {
-        path: 'evaluate-monitoring',
+        path: 'assessment',
         title: 'Evaluar Seguimiento',
         component: EvaluateMonitoringComponent,
+        children: [
+          {
+            path: 'evaluate-monitoring',
+            title: 'Seleccionar Escuela',
+            component: SelectedSchoolComponent,
+          },
+          {
+            path: 'evaluate-monitoring/:date/:idstaff',
+            title: 'Evaluar Escuela',
+            component: EvaluateSchoolComponent,
+          },
+          { path: '', pathMatch: 'full', redirectTo: 'evaluate-monitoring' },
+          { path: '**', pathMatch: 'full', redirectTo: 'evaluate-monitoring' },
+        ],
       },
       {
         path: 'evaluate-certification',

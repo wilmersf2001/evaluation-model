@@ -96,4 +96,8 @@ export class SchoolStaffService {
   getSchoolStaff(): DatumSchoolStaff[] {
     return this.schoolStaff.data;
   }
+
+  /* saveSchoolStaff(schoolStaff: DatumSchoolStaff) {
+    localStorage.setItem('schoolStaff', JSON.stringify(schoolStaff));
+  } */
 }

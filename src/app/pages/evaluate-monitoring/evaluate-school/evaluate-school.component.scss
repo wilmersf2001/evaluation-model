@@ -1,0 +1,14 @@
+.container{
+  section{
+    display: flex;
+    gap: 1.5rem;
+    
+  }
+  table{
+    margin-top: 1rem;
+    th{
+      background-color: #4d869c;
+      color: #fff;
+    }
+  }
+}
