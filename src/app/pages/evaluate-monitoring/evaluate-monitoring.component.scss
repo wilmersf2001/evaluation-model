@@ -1,0 +1,73 @@
+.container{
+  padding: 1rem;
+
+  .filters{
+    display: flex;
+    justify-content: space-between;
+
+    .select-school{
+      width: 400px;
+    }
+  }
+
+  .content{
+    padding: 1.5rem 0;
+    display: flex;
+
+    .table-personal{
+      flex: 1;
+      table{
+        th{
+          background-color: #4d869c;
+          color: #fff;
+        }
+        .estado{
+          width: 100px;
+          color: #fff;
+          background-color: #4d869c;
+          padding: 0.5rem;
+          border-radius: 5px;
+          text-align: center;
+        }
+      }
+    }
+
+    .seleccion{
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .container{
+    .content{
+      .seleccion{
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+
+  .container{
+    .filters{
+      flex-direction: column;
+      gap: 2rem;
+
+      .select-school{
+        width: 100%;
+      }
+    }
+
+    .content{
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+  
+}

@@ -1,1 +1,65 @@
-<p>evaluate-monitoring works!</p>
+<div class="container">
+  <h2>Evaluar</h2>
+  <div class="filters">
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="select-school">
+      <mat-label>Select me</mat-label>
+      <mat-select [value]="56">
+        @for (school of schools; track $index) {
+        <mat-option [value]="school.id">
+          {{ school.nombre }}
+        </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="content">
+    <div class="table-personal">
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="docente">
+          <th mat-header-cell *matHeaderCellDef>Personal</th>
+          <td mat-cell *matCellDef="let element">{{ element.docente }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="estado">sin evaluar</div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="onRowClick(row)"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </div>
+    <div class="seleccion">
+      <h2>YOU MUST SELECT A TEACHER</h2>
+      <p>Click on one of the rows</p>
+    </div>
+  </div>
+</div>

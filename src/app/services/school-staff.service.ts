@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SchoolStaff } from '../interfaces/school-staff';
+import { SchoolStaff, DatumSchoolStaff } from '../interfaces/school-staff';
 
 @Injectable({
   providedIn: 'root',
@@ -93,5 +93,7 @@ export class SchoolStaffService {
     currentPage: 1,
   };
 
-  constructor() {}
+  getSchoolStaff(): DatumSchoolStaff[] {
+    return this.schoolStaff.data;
+  }
 }
