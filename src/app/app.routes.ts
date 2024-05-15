@@ -7,6 +7,8 @@ import { SelectedSchoolComponent } from './pages/evaluate-monitoring/selected-sc
 import { EvaluateSchoolComponent } from './pages/evaluate-monitoring/evaluate-school/evaluate-school.component';
 import { EvaluateCertificationComponent } from './pages/evaluate-certification/evaluate-certification.component';
 
+import { homeGuard } from './guards/home.guard';
+
 export const routes: Routes = [
   { path: 'login', title: 'Iniciar Sesión', component: LoginComponent },
   {
@@ -42,6 +44,7 @@ export const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'profile' },
       { path: '**', pathMatch: 'full', redirectTo: 'profile' },
     ],
+    canActivate: [homeGuard],
   },
   { path: '**', pathMatch: 'full', redirectTo: 'login' },
   { path: '', pathMatch: 'full', redirectTo: 'login' },

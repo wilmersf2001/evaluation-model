@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="container">
+  <div class="contenedor">
+    <div class="contenedor__imagen">
+      <img src="assets/images/login.jpg" alt="" />
+    </div>
+    <form class="contenedor__formulario">
+      <div class="formulario__box">
+        <div class="box__title">
+          <h2 class="title__titulo">Welcome To</h2>
+          <h4 class="title__subtitulo">
+            Log in to enjoy the content we offer you
+          </h4>
+        </div>
+        <div class="box__cajas">
+          <label for="email">Usuario</label>
+          <input
+            type="text"
+            placeholder="Ejem: cvalderach"
+            id="email"
+            value="cvalderach"
+          />
+        </div>
+        <div class="box__cajas">
+          <label for="contraseña">Password</label>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            id="contraseña"
+            value="12345678"
+          />
+        </div>
+      </div>
+      <div class="formulario__boton">
+        <button type="submit" (click)="iniciarSesion()">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+</div>
